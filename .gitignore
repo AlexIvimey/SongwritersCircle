@@ -1,0 +1,7 @@
+api/.vs
+api/SSapi/.vs
+api/SSapi/obj
+api/SSapi/SSapi/bin
+api/SSapi/SSapi/SCapi.http
+api/SSapi/SSapi/obj
+api/SSapi/SSapi/Migrations
