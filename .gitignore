@@ -5,3 +5,8 @@ api/SSapi/SSapi/bin
 api/SSapi/SSapi/SCapi.http
 api/SSapi/SSapi/obj
 api/SSapi/SSapi/Migrations
+/node_modules
+.editorconfig
+.gitattributes
+.prettierrc.json
+.vscode/
