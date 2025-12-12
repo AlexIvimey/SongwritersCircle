@@ -33,5 +33,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-Console.WriteLine("Successfully running SongwriterCircle Api at:");

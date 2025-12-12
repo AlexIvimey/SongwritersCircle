@@ -18,7 +18,6 @@ namespace SCapi.Controllers
 
         // POST: SongsController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(Song song)
         {
             _context.Add(song);
@@ -36,7 +35,6 @@ namespace SCapi.Controllers
 
         // PUT SongsController/{id}
         [HttpPut("{id}")]
-        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Update(int id, Song song)
         {
             if (id < 1 || !_context.Songs.Any(s => s.Id == id) || id != song.Id)
@@ -44,10 +42,8 @@ namespace SCapi.Controllers
                 return BadRequest("The resource does not exist");
             }
 
-            // get the song
-            _context.Entry(song).State = EntityState.Modified;
+            _context.Update(song);
 
-            //try to save
             try
             {
                 await _context.SaveChangesAsync();
