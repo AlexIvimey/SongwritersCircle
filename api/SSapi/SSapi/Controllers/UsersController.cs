@@ -15,7 +15,7 @@ namespace SCapi.Controllers
             _context = context;
         }
 
-        // POST: UsersController/Create
+        // POST: Users/Create
         [HttpPost]
         public async Task<ActionResult> Create(User user)
         {

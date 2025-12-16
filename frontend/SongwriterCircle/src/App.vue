@@ -1,11 +1,10 @@
-<script setup lang="ts"></script>
-
+<script lang="ts">
+import createAccount from './components/login.vue'
+</script>
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <h2>Welcome to the SongwriterCircle</h2>
+  <h4>Create an account and start collaborating!!</h4>
+  <createAccount />
 </template>
 
 <style scoped></style>
