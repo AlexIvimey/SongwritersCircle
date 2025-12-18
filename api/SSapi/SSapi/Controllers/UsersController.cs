@@ -15,7 +15,6 @@ namespace SCapi.Controllers
             _context = context;
         }
 
-        // POST: Users/Create
         [HttpPost]
         public async Task<ActionResult> Create(User user)
         {
@@ -31,7 +30,7 @@ namespace SCapi.Controllers
             }
             return CreatedAtAction(nameof(Create), user);
         }
-        // POST: UsersController/Create
+
         [HttpPut("{id}")]
         public async Task<ActionResult> Update(int id, User user)
         {
@@ -52,7 +51,6 @@ namespace SCapi.Controllers
             return Ok();
         }
 
-        // DELETE: UsersController/Delete
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
@@ -70,7 +68,6 @@ namespace SCapi.Controllers
             return NoContent();
         }
 
-        //GET: UsersController/Get
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> Get()
         {
