@@ -10,3 +10,4 @@ api/SSapi/SSapi/Migrations
 .gitattributes
 .prettierrc.json
 .vscode/
+.env

@@ -2,6 +2,8 @@ import { defineStore } from 'pinia'
 import type User from '@/models/user'
 import axios from 'axios'
 
+const url = import.meta.env.API_URL
+
 export const useUserStore = defineStore('user', {
   state: () => {
     return {
@@ -13,7 +15,7 @@ export const useUserStore = defineStore('user', {
   actions: {
     async createAccount(username: string, password: string) {
       try {
-        const response = await axios.post('http://localhost:5299/Users/Create', {
+        const response = await axios.post(`${url}/users/create`, {
           username: username,
           password: password,
         })

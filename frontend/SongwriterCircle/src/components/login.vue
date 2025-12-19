@@ -1,8 +1,10 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapState } from 'pinia'
 import { useUserStore } from '../stores/user'
-export default defineComponent({
+export default {
+  setup(){
+    const userStore = useUserStore()
+    return { userStore }
+  },
   data() {
     return {
       username: '',
@@ -10,16 +12,19 @@ export default defineComponent({
     }
   },
   methods: {
-    login() {},
+    login() {
+      this.userStore.createAccount(this.username, this.password)
+    },
   },
   computed: {
-    ...mapState(useUserStore, ['user']),
+  
   },
-})
+}
 </script>
 <template>
-  <form type="submit" v-model="login">
+  <form id="loginForm" @submit="login">
     <input type="text" v-model="username" placeholder="username" required />
     <input type="text" v-model="password" placeholder="password" required />
+    <button type="submit">submit</button>
   </form>
 </template>
