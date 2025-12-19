@@ -14,12 +14,12 @@ export const useUserStore = defineStore('user', {
     async createAccount(username: string, password: string) {
       try {
         const response = await axios.post('http://localhost:5299/Users/Create', {
-          username,
-          password,
+          username: username,
+          password: password,
         })
-        this.user = response.data
+        this.user = response.data;
       } catch (error) {
-        return error
+        return error;
       }
     },
   },
