@@ -11,3 +11,4 @@ api/SSapi/SSapi/Migrations
 .prettierrc.json
 .vscode/
 .env
+SSapi.sln
