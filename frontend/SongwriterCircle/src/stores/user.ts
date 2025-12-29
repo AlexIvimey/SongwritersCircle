@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia'
-import type User from '@/models/user'
-import axios from 'axios'
-
-const url = import.meta.env.API_URL
+import api from '../services/api'
+import type { APIResponse } from '@/models/APIResponse'
+import type { User } from '@/models/user'
 
 export const useUserStore = defineStore('user', {
   state: () => {
@@ -15,11 +14,11 @@ export const useUserStore = defineStore('user', {
   actions: {
     async createAccount(username: string, password: string) {
       try {
-        const response = await axios.post(`${url}/users/create`, {
+        const response = await api.post<APIResponse<User>>('/users', {
           username: username,
           password: password,
         })
-        this.user = response.data;
+        this.user = response.data.content;
       } catch (error) {
         return error;
       }

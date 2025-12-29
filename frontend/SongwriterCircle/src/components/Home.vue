@@ -9,5 +9,5 @@ export default {
 </script>
 <template>
 <h2>Welcome to the SongwriterCircle</h2>
-<h4>Create an account and start collaborating!!</h4>
+<h4>Create your first song!!</h4>
 </template>
