@@ -1,4 +1,7 @@
 <script lang="ts">
+  import { useTitle } from '@vueuse/core'
+  const title = useTitle();
+  title.value = 'SongwritersCircle'
 </script>
 <template>
   <nav>
