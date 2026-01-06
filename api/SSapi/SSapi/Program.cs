@@ -7,15 +7,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+var appUrls = new List<string>
+{
+    builder.Configuration.GetSection("ProdURLs").GetSection("Prod").Value
+};
+if (builder.Environment.IsDevelopment())
+{
+    appUrls.Add(builder.Configuration.GetSection("DevURLs").GetSection("Dev").Value);
+}
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("DevCors", policy =>
+    options.AddPolicy("Cors", policy =>
     {
         policy
-            .WithOrigins(
-                "http://localhost:5173",
-                "https://localhost:5173"
-            )
+            .WithOrigins([.. appUrls])
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -32,15 +37,18 @@ builder.Services.AddDbContext<SongwriterCircleDbContext>(options => options.UseN
 
 var app = builder.Build();
 
+app.UseCors("Cors");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("DevCors");
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
+else
+{
+    // only use in 'prod' mode
+    app.UseHttpsRedirection();   
+}
 
 app.UseAuthorization();
 
