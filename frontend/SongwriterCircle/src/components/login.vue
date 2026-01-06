@@ -12,8 +12,8 @@ export default {
     }
   },
   methods: {
-    createAccount() {
-      this.userStore.createAccount(this.username, this.password)
+    async createAccount() {
+      await this.userStore.createAccount(this.username, this.password)
     },
   },
   computed: {
